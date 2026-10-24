@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "Course Enrollment System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{"key":"baseUrl","value":"http://localhost:3000"}],
+  "item": [
+    {"name":"Health Check","request":{"method":"GET","url":"{{baseUrl}}/"}},
+    {"name":"Get Students","request":{"method":"GET","url":"{{baseUrl}}/students"}},
+    {"name":"Get Courses + Remaining Seats","request":{"method":"GET","url":"{{baseUrl}}/courses"}},
+    {"name":"Enroll Student","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"studentId\": 104,\n  \"courseId\": 203\n}"},"url":"{{baseUrl}}/enrollments"}},
+    {"name":"Student Courses","request":{"method":"GET","url":"{{baseUrl}}/enrollments/student/101"}},
+    {"name":"Cancel Enrollment","request":{"method":"DELETE","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"studentId\": 104,\n  \"courseId\": 203\n}"},"url":"{{baseUrl}}/enrollments"}},
+    {"name":"Duplicate Enrollment Test","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"studentId\": 101,\n  \"courseId\": 201\n}"},"url":"{{baseUrl}}/enrollments"}}
+  ]
+}
